@@ -7,11 +7,12 @@ from extract import extract_features
 app = typer.Typer()
 
 DEFAULT_AUDIO = 'speech_recordings/test_1_recording_01_0.flac'
+DEFAULT_DIRECTORY = 'speech_recordings'
 
 # Default Usage:
 # python3 src/main.py extract
 @app.command()
-def extract(audio_file: str = DEFAULT_AUDIO, output_file: str = 'features.csv'):
+def extract(audio_file: str = DEFAULT_DIRECTORY, output_file: str = 'features.csv'):
     """
     Extract features from audio file and dump into csv.
     """
