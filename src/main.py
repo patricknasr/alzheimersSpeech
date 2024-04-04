@@ -8,6 +8,8 @@ app = typer.Typer()
 
 DEFAULT_AUDIO = 'speech_recordings/test_1_recording_01_0.flac'
 
+# Default Usage:
+# python3 src/main.py extract
 @app.command()
 def extract(audio_file: str = DEFAULT_AUDIO, output_file: str = 'features.csv'):
     """
@@ -15,6 +17,8 @@ def extract(audio_file: str = DEFAULT_AUDIO, output_file: str = 'features.csv'):
     """
     extract_features(audio_file, output_file)
 
+# Default Usage:
+# python3 src/main.py spectrogram
 @app.command()
 def spectrogram(audio_file: str = DEFAULT_AUDIO):
     """
@@ -22,6 +26,8 @@ def spectrogram(audio_file: str = DEFAULT_AUDIO):
     """
     create_spectrogram(audio_file)
 
+# Default Usage:
+# python3 src/main.py new
 @app.command()
 def new(features_path: str = 'features.csv'):
     """
@@ -29,6 +35,8 @@ def new(features_path: str = 'features.csv'):
     """
     process_new_data(features_path)
 
+# Default Usage:
+# python3 src/main.py visualise
 @app.command()
 def visualise(features_path: str = 'features.csv'):
     """
