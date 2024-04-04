@@ -20,5 +20,3 @@ def create_spectrogram(audio_path):
     plt.title('Mel-frequency Spectrogram')
     plt.tight_layout()
     plt.show()
-
-create_spectrogram('speech_recordings/test_1_recording_01_0.flac')
