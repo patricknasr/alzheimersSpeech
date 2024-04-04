@@ -1,6 +1,6 @@
 import typer
-from spectrogram import create_spectrogram
-from new import process_new_data
+from spectrogram import create_spectrogram, create_combined_spectrogram
+from correlation import process_new_data
 from visualise import visualise_data
 from extract import extract_features
 
@@ -12,25 +12,34 @@ DEFAULT_DIRECTORY = 'speech_recordings'
 # Default Usage:
 # python3 src/main.py extract
 @app.command()
-def extract(audio_file: str = DEFAULT_DIRECTORY, output_file: str = 'features.csv'):
+def extract(audio_dir: str = DEFAULT_DIRECTORY, output_file: str = 'features.csv'):
     """
     Extract features from audio file and dump into csv.
     """
-    extract_features(audio_file, output_file)
+    extract_features(audio_dir, output_file)
 
 # Default Usage:
 # python3 src/main.py spectrogram
 @app.command()
-def spectrogram(audio_file: str = DEFAULT_AUDIO):
+def mfcc(audio_dir: str = DEFAULT_DIRECTORY):
     """
     Generates a spectrogram for the given audio file.
     """
-    create_spectrogram(audio_file)
+    create_spectrogram(audio_dir)
+
+# Default Usage:
+# python3 src/main.py spectrogram
+@app.command()
+def combined_mfcc(audio_dir: str = DEFAULT_DIRECTORY):
+    """
+    Generates a spectrogram for the given audio file.
+    """
+    create_combined_spectrogram(audio_dir)
 
 # Default Usage:
 # python3 src/main.py new
 @app.command()
-def new(features_path: str = 'features.csv'):
+def correlation(features_path: str = 'features.csv'):
     """
     Processes new data.
     """

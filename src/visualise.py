@@ -22,7 +22,7 @@ def visualise_data(feature_file_path):
 
     # Example 2: Heatmap for a subset of features
     # Selecting a subset of features for the heatmap
-    features_for_heatmap = df[['Loudness_sma3', 'alphaRatio_sma3', 'hammarbergIndex_sma3', 'slope0-500_sma3']]
+    features_for_heatmap = df[['mfcc1_sma3', 'mfcc2_sma3', 'mfcc3_sma3', 'mfcc4_sma3']]
     plt.figure(figsize=(10, 8))
     sns.heatmap(features_for_heatmap.T, cmap='YlGnBu')
     plt.title('Feature Values Heatmap')

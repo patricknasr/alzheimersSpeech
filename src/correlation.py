@@ -5,7 +5,7 @@ import seaborn as sns
 def process_new_data(features_file_path):
     df = pd.read_csv(features_file_path)
 
-    features = ['mfcc1_sma3', 'jitterLocal_sma3nz', 'shimmerLocaldB_sma3nz'] 
+    features = ['F0semitoneFrom27.5Hz_sma3nz', 'jitterLocal_sma3nz', 'shimmerLocaldB_sma3nz'] 
     correlation_matrix = df[features].corr()
 
     plt.figure(figsize=(8, 6))
