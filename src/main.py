@@ -7,7 +7,7 @@ from extract import extract_features
 app = typer.Typer()
 
 DEFAULT_AUDIO = 'speech_recordings/test_1_recording_01_0.flac'
-DEFAULT_DIRECTORY = 'speech_recordings'
+DEFAULT_DIRECTORY = 'ad_speech_recordings'
 
 # Default Usage:
 # python3 src/main.py extract
