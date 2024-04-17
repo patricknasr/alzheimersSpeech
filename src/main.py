@@ -12,11 +12,11 @@ DEFAULT_DIRECTORY = 'ad_speech_recordings'
 # Default Usage:
 # python3 src/main.py extract
 @app.command()
-def extract(audio_dir: str = DEFAULT_DIRECTORY, output_file: str = 'features.csv'):
+def extract(audio_dir: str = DEFAULT_DIRECTORY, output_file: str = 'features.csv', has_alzheimers: int = 1):
     """
     Extract features from audio file and dump into csv.
     """
-    extract_features(audio_dir, output_file)
+    extract_features(audio_dir, output_file, has_alzheimers)
 
 # Default Usage:
 # python3 src/main.py spectrogram

@@ -1,7 +1,7 @@
 import os
 import opensmile
 
-def extract_features(directory_path, output_path):
+def extract_features(directory_path, output_path, has_alzheimers):
     # Initialize openSMILE
     smile = opensmile.Smile(
         feature_set=opensmile.FeatureSet.eGeMAPSv02,
@@ -22,6 +22,9 @@ def extract_features(directory_path, output_path):
 
             # Extract features
             features = smile.process_file(file_path)
+
+            # Add the 'has_alzheimers' column to the DataFrame
+            features['has_alzheimers'] = has_alzheimers
             
             # Print the first few lines of the features DataFrame
             print(features.head())
