@@ -24,7 +24,8 @@ def extract_features(directory_path, output_path, has_alzheimers):
             features = smile.process_file(file_path)
 
             # Add the 'has_alzheimers' column to the DataFrame
-            features['has_alzheimers'] = has_alzheimers
+            if has_alzheimers is not None:
+                features['has_alzheimers'] = has_alzheimers 
             
             # Print the first few lines of the features DataFrame
             print(features.head())
