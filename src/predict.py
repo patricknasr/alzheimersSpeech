@@ -11,8 +11,7 @@ extract_features(directory_path='non_ad_validation', output_path='validation.csv
 data = pd.read_csv('validation.csv')
 
 # Assuming the last column is the target and the rest are features
-X = data.iloc[:, :-1]
-y = data.iloc[:, -1]
+X = data.iloc[:, :]
 
 # Normalize features as was done during training (if applicable)
 scaler = StandardScaler()
@@ -35,4 +34,4 @@ with torch.no_grad():
 data['Predicted_Alzheimer'] = predicted_labels.numpy().flatten()  # Convert tensor to numpy and flatten if necessary
 
 # Save the DataFrame with the predicted labels to a new CSV file
-data.to_csv('predictions.csv', index=False)
+data['Predicted_Alzheimer'].to_csv('validation.csv', index=False)
