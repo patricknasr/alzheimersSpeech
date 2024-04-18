@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler
+import joblib
 
 # Load data
 data = pd.read_csv('features.csv')
@@ -15,12 +16,18 @@ y = data.iloc[:, -1]
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
+# Save the scaler object to disk for later use
+joblib.dump(scaler, 'scaler.pkl')
+
 # Split data
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
 # Initialize and train the KNN classifier
 knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X_train, y_train)
+
+# Save the trained KNN model to disk
+joblib.dump(knn, 'knn_model.pkl')
 
 # Predictions
 y_pred = knn.predict(X_test)
