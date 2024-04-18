@@ -10,14 +10,6 @@ import pandas as pd
 # Load data from CSV file
 data = pd.read_csv('features.csv')
 
-# # Feature indices
-# feature_idx_a = 0
-# feature_idx_b = 1
-
-# # Get feature names based on indices
-# feature_name_a = data.columns[feature_idx_a]
-# feature_name_b = data.columns[feature_idx_b]
-
 feature_name_a = 'jitterLocal_sma3nz'
 feature_name_b = 'F1frequency_sma3nz'
 
@@ -50,7 +42,10 @@ Z = Z.reshape(xx.shape)
 # Plot
 plt.figure(figsize=(10, 6))
 plt.contourf(xx, yy, Z, alpha=0.8)
-plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=y, edgecolors='k')
+# Scatter plot with labels for the legend
+scatter = plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=y, edgecolors='k', label=['Not Alzheimers', 'Alzheimers'])
+# Generate legends
+plt.legend(handles=scatter.legend_elements()[0], labels=['Not Alzheimers', 'Alzheimers'])
 plt.title('KNN Class Boundaries with 5 Neighbors')
 plt.xlabel(feature_name_a)
 plt.ylabel(feature_name_b)

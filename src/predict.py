@@ -5,7 +5,7 @@ from extract import extract_features  # Assumes this does not include training
 from train import AlzheimerNet  # Make sure this just defines the class, not train it
 
 # Extract features and save them to 'validation.csv'
-extract_features(directory_path='non_ad_validation', output_path='validation.csv', has_alzheimers=None)
+extract_features(directory_path='ad_validation', output_path='validation.csv', has_alzheimers=None)
 
 # Load the extracted features from CSV
 data = pd.read_csv('validation.csv')
