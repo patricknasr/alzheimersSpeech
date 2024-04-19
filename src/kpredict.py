@@ -1,5 +1,4 @@
 import pandas as pd
-# from sklearn.preprocessing import StandardScaler
 import joblib
 from extract import extract_features
 
